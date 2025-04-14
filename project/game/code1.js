@@ -18,6 +18,9 @@ gdjs.gameCode.GDenemyObjects3= [];
 gdjs.gameCode.GDdelObjects1= [];
 gdjs.gameCode.GDdelObjects2= [];
 gdjs.gameCode.GDdelObjects3= [];
+gdjs.gameCode.GDLineLightJoystickObjects1= [];
+gdjs.gameCode.GDLineLightJoystickObjects2= [];
+gdjs.gameCode.GDLineLightJoystickObjects3= [];
 
 
 gdjs.gameCode.eventsList0 = function(runtimeScene) {
@@ -46,7 +49,7 @@ if(isConditionTrue_1) {
 }
 if (isConditionTrue_0) {
 isConditionTrue_0 = false;
-{isConditionTrue_0 = runtimeScene.getOnceTriggers().triggerOnce(10715340);
+{isConditionTrue_0 = runtimeScene.getOnceTriggers().triggerOnce(9667356);
 }
 }
 if (isConditionTrue_0) {
@@ -172,6 +175,36 @@ gdjs.gameCode.eventsList3 = function(runtimeScene) {
 
 let isConditionTrue_0 = false;
 isConditionTrue_0 = false;
+{isConditionTrue_0 = (runtimeScene.getScene().getVariables().getFromIndex(1).getAsNumber() > 0);
+}
+if (isConditionTrue_0) {
+{runtimeScene.getScene().getVariables().getFromIndex(1).sub(400 * gdjs.evtTools.runtimeScene.getElapsedTimeInSeconds(runtimeScene));
+}}
+
+}
+
+
+{
+
+
+let isConditionTrue_0 = false;
+isConditionTrue_0 = false;
+{isConditionTrue_0 = (runtimeScene.getScene().getVariables().getFromIndex(1).getAsNumber() < 0);
+}
+if (isConditionTrue_0) {
+{runtimeScene.getScene().getVariables().getFromIndex(1).add(400 * gdjs.evtTools.runtimeScene.getElapsedTimeInSeconds(runtimeScene));
+}}
+
+}
+
+
+};gdjs.gameCode.eventsList4 = function(runtimeScene) {
+
+{
+
+
+let isConditionTrue_0 = false;
+isConditionTrue_0 = false;
 {isConditionTrue_0 = (runtimeScene.getGame().getVariables().getFromIndex(0).getAsString() == "NotStarted");
 }
 if (isConditionTrue_0) {
@@ -258,6 +291,107 @@ if (isConditionTrue_0) {
 }
 
 
+{
+
+gdjs.copyArray(runtimeScene.getObjects("LineLightJoystick"), gdjs.gameCode.GDLineLightJoystickObjects1);
+
+let isConditionTrue_0 = false;
+isConditionTrue_0 = false;
+for (var i = 0, k = 0, l = gdjs.gameCode.GDLineLightJoystickObjects1.length;i<l;++i) {
+    if ( gdjs.gameCode.GDLineLightJoystickObjects1[i].IsDirectionPushed4Way("Up", (typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined)) ) {
+        isConditionTrue_0 = true;
+        gdjs.gameCode.GDLineLightJoystickObjects1[k] = gdjs.gameCode.GDLineLightJoystickObjects1[i];
+        ++k;
+    }
+}
+gdjs.gameCode.GDLineLightJoystickObjects1.length = k;
+if (isConditionTrue_0) {
+gdjs.copyArray(runtimeScene.getObjects("plane"), gdjs.gameCode.GDplaneObjects1);
+{runtimeScene.getScene().getVariables().getFromIndex(0).setNumber(-(20));
+}{runtimeScene.getScene().getVariables().getFromIndex(1).sub(400 * gdjs.evtTools.runtimeScene.getElapsedTimeInSeconds(runtimeScene));
+}{for(var i = 0, len = gdjs.gameCode.GDplaneObjects1.length ;i < len;++i) {
+    gdjs.gameCode.GDplaneObjects1[i].setAngle(gdjs.gameCode.GDplaneObjects1[i].getAngle() + ((runtimeScene.getScene().getVariables().getFromIndex(0).getAsNumber() - (gdjs.gameCode.GDplaneObjects1[i].getAngle())) * 10 * gdjs.evtTools.runtimeScene.getElapsedTimeInSeconds(runtimeScene)));
+}
+}{for(var i = 0, len = gdjs.gameCode.GDplaneObjects1.length ;i < len;++i) {
+    gdjs.gameCode.GDplaneObjects1[i].setY(gdjs.gameCode.GDplaneObjects1[i].getY() + (runtimeScene.getScene().getVariables().getFromIndex(1).getAsNumber()));
+}
+}}
+
+}
+
+
+{
+
+gdjs.copyArray(runtimeScene.getObjects("LineLightJoystick"), gdjs.gameCode.GDLineLightJoystickObjects1);
+
+let isConditionTrue_0 = false;
+isConditionTrue_0 = false;
+for (var i = 0, k = 0, l = gdjs.gameCode.GDLineLightJoystickObjects1.length;i<l;++i) {
+    if ( gdjs.gameCode.GDLineLightJoystickObjects1[i].IsDirectionPushed4Way("Down", (typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined)) ) {
+        isConditionTrue_0 = true;
+        gdjs.gameCode.GDLineLightJoystickObjects1[k] = gdjs.gameCode.GDLineLightJoystickObjects1[i];
+        ++k;
+    }
+}
+gdjs.gameCode.GDLineLightJoystickObjects1.length = k;
+if (isConditionTrue_0) {
+gdjs.copyArray(runtimeScene.getObjects("plane"), gdjs.gameCode.GDplaneObjects1);
+{runtimeScene.getScene().getVariables().getFromIndex(0).setNumber(20);
+}{runtimeScene.getScene().getVariables().getFromIndex(1).add(400 * gdjs.evtTools.runtimeScene.getElapsedTimeInSeconds(runtimeScene));
+}{for(var i = 0, len = gdjs.gameCode.GDplaneObjects1.length ;i < len;++i) {
+    gdjs.gameCode.GDplaneObjects1[i].setAngle(gdjs.gameCode.GDplaneObjects1[i].getAngle() + ((runtimeScene.getScene().getVariables().getFromIndex(0).getAsNumber() - (gdjs.gameCode.GDplaneObjects1[i].getAngle())) * 10 * gdjs.evtTools.runtimeScene.getElapsedTimeInSeconds(runtimeScene)));
+}
+}{for(var i = 0, len = gdjs.gameCode.GDplaneObjects1.length ;i < len;++i) {
+    gdjs.gameCode.GDplaneObjects1[i].setY(gdjs.gameCode.GDplaneObjects1[i].getY() + (runtimeScene.getScene().getVariables().getFromIndex(1).getAsNumber()));
+}
+}}
+
+}
+
+
+{
+
+gdjs.copyArray(runtimeScene.getObjects("LineLightJoystick"), gdjs.gameCode.GDLineLightJoystickObjects1);
+
+let isConditionTrue_0 = false;
+isConditionTrue_0 = false;
+{let isConditionTrue_1 = false;
+isConditionTrue_1 = false;
+for (var i = 0, k = 0, l = gdjs.gameCode.GDLineLightJoystickObjects1.length;i<l;++i) {
+    if ( gdjs.gameCode.GDLineLightJoystickObjects1[i].IsDirectionPushed4Way("Up", (typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined)) ) {
+        isConditionTrue_1 = true;
+        gdjs.gameCode.GDLineLightJoystickObjects1[k] = gdjs.gameCode.GDLineLightJoystickObjects1[i];
+        ++k;
+    }
+}
+gdjs.gameCode.GDLineLightJoystickObjects1.length = k;
+if (isConditionTrue_1) {
+isConditionTrue_1 = false;
+for (var i = 0, k = 0, l = gdjs.gameCode.GDLineLightJoystickObjects1.length;i<l;++i) {
+    if ( gdjs.gameCode.GDLineLightJoystickObjects1[i].IsDirectionPushed4Way("Down", (typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined)) ) {
+        isConditionTrue_1 = true;
+        gdjs.gameCode.GDLineLightJoystickObjects1[k] = gdjs.gameCode.GDLineLightJoystickObjects1[i];
+        ++k;
+    }
+}
+gdjs.gameCode.GDLineLightJoystickObjects1.length = k;
+}
+isConditionTrue_0 = !isConditionTrue_1;
+}
+if (isConditionTrue_0) {
+gdjs.copyArray(runtimeScene.getObjects("plane"), gdjs.gameCode.GDplaneObjects1);
+{runtimeScene.getScene().getVariables().getFromIndex(0).setNumber(0);
+}{for(var i = 0, len = gdjs.gameCode.GDplaneObjects1.length ;i < len;++i) {
+    gdjs.gameCode.GDplaneObjects1[i].setAngle(gdjs.gameCode.GDplaneObjects1[i].getAngle() + ((runtimeScene.getScene().getVariables().getFromIndex(0).getAsNumber() - (gdjs.gameCode.GDplaneObjects1[i].getAngle())) * 10 * gdjs.evtTools.runtimeScene.getElapsedTimeInSeconds(runtimeScene)));
+}
+}
+{ //Subevents
+gdjs.gameCode.eventsList3(runtimeScene);} //End of subevents
+}
+
+}
+
+
 };
 
 gdjs.gameCode.func = function(runtimeScene) {
@@ -281,8 +415,11 @@ gdjs.gameCode.GDenemyObjects3.length = 0;
 gdjs.gameCode.GDdelObjects1.length = 0;
 gdjs.gameCode.GDdelObjects2.length = 0;
 gdjs.gameCode.GDdelObjects3.length = 0;
+gdjs.gameCode.GDLineLightJoystickObjects1.length = 0;
+gdjs.gameCode.GDLineLightJoystickObjects2.length = 0;
+gdjs.gameCode.GDLineLightJoystickObjects3.length = 0;
 
-gdjs.gameCode.eventsList3(runtimeScene);
+gdjs.gameCode.eventsList4(runtimeScene);
 gdjs.gameCode.GDcloud1Objects1.length = 0;
 gdjs.gameCode.GDcloud1Objects2.length = 0;
 gdjs.gameCode.GDcloud1Objects3.length = 0;
@@ -301,6 +438,9 @@ gdjs.gameCode.GDenemyObjects3.length = 0;
 gdjs.gameCode.GDdelObjects1.length = 0;
 gdjs.gameCode.GDdelObjects2.length = 0;
 gdjs.gameCode.GDdelObjects3.length = 0;
+gdjs.gameCode.GDLineLightJoystickObjects1.length = 0;
+gdjs.gameCode.GDLineLightJoystickObjects2.length = 0;
+gdjs.gameCode.GDLineLightJoystickObjects3.length = 0;
 
 
 return;
